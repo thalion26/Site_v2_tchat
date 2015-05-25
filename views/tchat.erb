@@ -1,0 +1,36 @@
+<div class="background"></div>
+<div class="tchat-app">
+	<div class="tchat-add">
+		<form class="add" action="/tchat" method="post" accept-charset="utf-8">
+			<input type="text" class="input-name" name="tchat[name]" placeholder="Name">
+			<input type="text" class="input-message" name="tchat[message]" placeholder="Message">
+			<input type="submit" value="Send">
+		</form>
+	</div>
+	
+	<div class="tchatbox">
+		<% if @tchat.any? == false %>
+			<div class="no-tchat">No Message</div>
+		<% else %>
+			<% @tchat.each do |tchat| %>
+			<div class="tchat">
+				<div class="tchat-header">
+					<div class="tchat-name"><%= tchat.name %></div>
+					<div class="tchat-admin">
+						<button type="submit" class="delete-tchat" form="delete-tchat-<%= tchat.id %>"><i class="fa fa-times"></i> Delete</button>
+					</div>
+				</div>
+				<div id="tchat-desc-<%= tchat.id %>" class="tchat-desc" contenteditable="true" onfocus="Openedit(<%= tchat.id %>)" onblur="Closedit(<%= tchat.id %>)" onclick="copyText(<%= tchat.id %>)" onkeyup="copyText(<%= tchat.id %>)"><%= tchat.message %></div>
+				<button type="submit" id="tchat-edit-<%= tchat.id %>" class="edit-tchat" form="edit-tchat-<%= tchat.id %>"><i class="fa fa-pencil"></i> Edit</button>
+				<form id="edit-tchat-<%= tchat.id %>" action="/tchat/<%= tchat.id %>" method="post">
+					<input type="hidden" name="_method" value="put">
+					<textarea id="tchat-textarea-<%= tchat.id %>" class="invisible" name="tchat[message]"></textarea>
+				</form>
+				<form id="delete-tchat-<%= tchat.id %>" action="/tchat/<%= tchat.id %>" method="post">
+					<input type="hidden" name="_method" value="delete">
+				</form>
+			</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

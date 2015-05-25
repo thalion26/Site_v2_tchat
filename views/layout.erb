@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="fr">
+    <meta name="language" content="fr">
+    <meta name="copyright" content="http://monsite.fr">
+    <meta name="author" content="monsite.fr">
+	
+	<title><%= @title %></title>
+	
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+
+	<script type="text/javascript">
+	function copyText(nb) {
+		var divname = 'tchat-desc-'+nb;
+		var textname = 'tchat-textarea-'+nb;
+		var taskdesc = document.getElementById(divname).innerHTML;
+		document.getElementById(textname).value = taskdesc;
+	}
+
+	function Openedit(nb) {
+		var btnedit = 'tchat-edit-'+nb;
+		document.getElementById(btnedit).style.display = 'block';
+	}
+
+	function Closedit(nb) {
+		var btnedit = 'tchat-edit-'+nb;
+		setTimeout(function() {document.getElementById(btnedit).style.display = 'none';},500);
+	}
+	</script>
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Barre de navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="/">Destiny</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li><a href="/news">News</a></li>
+		        <li class="dropdown">
+		          <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Les Modes<span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="/raid">Les Raids</a></li>
+		            <li><a href="/banniere">La bannière de Fer</a></li>
+		          </ul>
+		        </li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Le Clan<span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="/les_membres#fondateur">Fondateurs</a></li>
+		            <li><a href="/les_membres#administrateur">Administrateurs</a></li>
+		            <li><a href="/les_membres#membres">Membres</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		      	<li><a href="/tchat">Tchat</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contact <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="https://www.bungie.net/en/Clan/Detail/836748">Bungie.net</a></li>
+		            <li><a href="#">PlayStation Network</a></li>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+		
+		<%= yield %>
+		<script src="js/jquery-1.11.3.min.js"></script>
+	    <script src="js/bootstrap.js"></script>
+	    <script type="text/javascript" src="js/showhide.js"></script>
+	</body>
+</html>
