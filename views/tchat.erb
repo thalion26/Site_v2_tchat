@@ -2,8 +2,8 @@
 <div class="tchat-app">
 	<div class="tchat-add">
 		<form class="add" action="/tchat" method="post" accept-charset="utf-8">
-			<input type="text" class="input-name" name="tchat[name]" placeholder="Name">
-			<input type="text" class="input-message" name="tchat[message]" placeholder="Message">
+			<input type="text" class="input-name" name="tchat[name]" placeholder="Name" autocomplete="off">
+			<input type="text" class="input-message" name="tchat[message]" placeholder="Message" autocomplete="off">
 			<input type="submit" value="Send">
 		</form>
 	</div>
@@ -27,7 +27,7 @@
 					<textarea id="tchat-textarea-<%= tchat.id %>" class="invisible" name="tchat[message]"></textarea>
 				</form>
 				<form id="delete-tchat-<%= tchat.id %>" action="/tchat/<%= tchat.id %>" method="post">
-					<input type="hidden" name="_method" value="delete">
+					<input type="hidden" name="_method" value="delete" >
 				</form>
 			</div>
 			<% end %>

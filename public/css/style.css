@@ -101,6 +101,7 @@ body {
   border: solid 1px rgba(0,0,0,0.25);
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
   resize: none;
+  color: black;
 }
 .input-message {
   display: block;
@@ -115,6 +116,7 @@ body {
   border: solid 1px rgba(0,0,0,0.25);
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
   resize: none;
+  color: black;
 }
 
 .add input[type="submit"] {
@@ -256,8 +258,8 @@ li { color: white;}
     background: -ms-linear-gradient( #E5D600, #2C2C2C);
     background: -o-linear-gradient( #E5D600, #2C2C2C);
     background: linear-gradient( #E5D600, #2C2C2C);
-  border-style: none;
-  color: black;
+    border-style: none;
+    color: black;
   } 
   .video{
     display:none;
